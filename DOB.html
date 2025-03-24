@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Validation</title>
+</head>
+<body>
+
+<form>
+    <label for="date">Date (dd-mm-yyyy):</label><br>
+    <input type="text" id="date">
+    <button type="button" onclick="validateDate()">Submit</button>
+    <p id="error" style="color: red;"></p>
+</form>
+
+<script>
+    function validateDate() {
+        let date = document.getElementById("date").value.trim();
+        let error = document.getElementById("error");
+
+        let pattern = /^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[0-2])-(19[0-9]{2}|20(0[0-9]|1[0-6]))$/;
+
+        if (!pattern.test(date)) {
+            error.innerHTML = "Invalid date. Format: dd-mm-yyyy (Year: 1900-2016)";
+            return;
+        }
+
+        error.innerHTML = "";
+        alert("Valid Date: " + date);
+    }
+</script>
+
+</body>
+</html>
