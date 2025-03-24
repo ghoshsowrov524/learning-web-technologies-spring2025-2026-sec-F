@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Validation</title>
+</head>
+<body>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <legend>
+            <th>Select Gender</th>
+        </legend>
+            <td>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+                <input type="radio" name="gender" value="Other"> Other
+            </td>
+        </tr>
+    </table>
+    <br>
+
+    <button type="button" onclick="validateRadio()">Submit</button>
+
+    <script>
+        function validateRadio() {
+            let genderOptions = document.getElementsByName("gender");
+            let isGenderSelected = false;
+            
+            for (let option of genderOptions) {
+                if (option.checked) {
+                    isGenderSelected = true;
+                    break;
+                }
+            }
+            
+            if (!isGenderSelected) {
+                alert("Please select a gender.");
+                return false;
+            }
+
+            alert("Gender selected successfully!");
+        }
+    </script>
+
+</body>
+</html>
